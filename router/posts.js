@@ -5,14 +5,19 @@ const postsList = require(`../data/posts.js`);
 // index 
 // Read: Visualizzare tutti gli elementi 
 router.get(`/`, (req,res) => {
-    res.send(`Qui visualizziamo la lista dei post`);
+    res.json({
+        data: postsList,
+        count: postsList.length
+    });
 });
 
 // show
 // Read: Visualizzare un elemento 
 router.get(`/:id`, (req, res) => {
     const postId = req.params.id
-    res.send(`Qui visualizziamo solo il post ${postId}`);
+    res.json({
+        post: postsList[0]
+    });
 });
 
 // store

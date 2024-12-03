@@ -17,7 +17,7 @@ app.get("/bacheca", (req, res) => {
         data: posts,
         count: posts.length
     });
-}
+});
 
 app.listen(port, () => {
     console.log(`Server in ascolto`); 
