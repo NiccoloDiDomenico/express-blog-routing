@@ -14,10 +14,17 @@ router.get(`/`, (req,res) => {
 // show
 // Read: Visualizzare un elemento 
 router.get(`/:id`, (req, res) => {
-    const postId = req.params.id
-    res.json({
-        post: postsList[0]
-    });
+    const postID = parseInt(req.params.id);
+    const post = postsList.find((curPost) => curPost.id === postID);
+    if (post != undefined) {
+        res.json(post);
+    } else {
+        res.statusCode = 404
+        res.json({
+            error: true,
+            message: `Post non trovato`
+        });
+    };
 });
 
 // store
